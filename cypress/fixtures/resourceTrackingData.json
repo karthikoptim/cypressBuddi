@@ -1,0 +1,7 @@
+{
+"deviceType" : "Laptop",
+"Model" : "Dell",
+"totalAssigned" : 1,
+"allocatedDate" : "new Date().toISOString().split('T')[0]"
+
+}
