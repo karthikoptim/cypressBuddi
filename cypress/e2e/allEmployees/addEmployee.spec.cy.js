@@ -53,7 +53,6 @@ describe('addEmployee', () => {
         cy.enterSalaryAndlocation(employeeData[10], employeeData[11])
         cy.selectCertificates()
         cy.clickOnSubmitButton()
-        
         cy.logOutFromApplication()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(employeeData[3], employeeData[4])

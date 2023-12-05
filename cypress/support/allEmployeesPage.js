@@ -33,7 +33,6 @@ const submitButtonUploadExcel = 'Submit'
 const dataAlreadyExistsOrExcelFormatisInvalidPopup = 'Data already exists or excel format is invalid.'
 const exportData = 'Export Data'
 
-
 Cypress.Commands.add('ClickOnAllEmployeesFromPannel', () => {
     cy.contains(allEmployeesPannelText).should('exist').and('be.visible').click()
 })
