@@ -1,7 +1,6 @@
 const expenditurePanelText = 'Expenditure'
 const uploadBillButton = 'Upload Bill'
 const addExpenditureHeaderText = 'Add Expenditure'
-
 const expenditureTypeDropdown = '[name="expenditureType"]'
 const descriptionInputField = '[name="description"]'
 const dateInputField = '[name="date"]'
@@ -10,7 +9,6 @@ const maxSizeText = '[Max Size 1MB]'
 const uploadBillsButton = '#uploadBills'
 const submitBillButton = 'Submit Bill'
 const billUploadedSuccessfullyPopup = 'Bill Uploaded Successfully'
-
 const downloadFiles = 'Download Files'
 
 Cypress.Commands.add('clickOnExpenditureFromPanel', () => {

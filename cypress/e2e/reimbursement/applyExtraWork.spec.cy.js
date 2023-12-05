@@ -1,8 +1,8 @@
 import * as randomData from '../../utilities/utils.js'
 
-describe('reimbursement',()=>{
-    const Date = randomData.getRandomDateInLastMonth()
-    const NumberOfHours = randomData.getRandomNumber()
+describe('reimbursement', () => {
+    const date = randomData.getRandomDateInLastMonth()
+    const numberOfHours = randomData.getRandomNumber()
     let loginTestData
     before(() => {
         cy.fixture('loginData').then((user) => {
@@ -10,16 +10,15 @@ describe('reimbursement',()=>{
         })
     })
 
-    it('applyExtraWork',()=>{
+    it('apply extra work', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
-
         cy.clickOnReimbursement()
         cy.clickOnApplyExtrawork()
-        cy.applyExtraWork(Date,NumberOfHours)
+        cy.applyExtraWork(date, numberOfHours)
     })
 })

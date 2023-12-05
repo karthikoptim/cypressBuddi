@@ -1,4 +1,4 @@
-describe('importFileUpload', () => {
+describe('import file upload', () => {
     const file = 'cypress/fixtures/employee_details (7).xlsx'
     let loginTestData
     before(() => {
@@ -7,39 +7,38 @@ describe('importFileUpload', () => {
         })
     })
 
-    it('downloadSampleFile',()=>{
+    it('download sample file',()=>{
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
-        cy.ClickOnAllEmployeesFromPannel()
+        cy.clickOnAllEmployeesFromPannel()
         cy.clickOnImportExcelSheetButton()
         cy.clickOnDownloadSampleFile()
     })
 
-    it('uploadInvalidFormatExcelFile', () => {
+    it('upload invalid format of employee details excel file', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
-        cy.ClickOnAllEmployeesFromPannel()
+        cy.clickOnAllEmployeesFromPannel()
         cy.clickOnImportExcelSheetButton()
         cy.clickOnUploadExcelButton(file)
     })
 
-    it('exportData',()=>{
+    it('export data',()=>{
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
-        cy.ClickOnAllEmployeesFromPannel()
+        cy.clickOnAllEmployeesFromPannel()
         cy.clickOnExportData()
     })
-
 })

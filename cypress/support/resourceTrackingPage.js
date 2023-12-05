@@ -9,7 +9,6 @@ const modelIdInputField = '[name="model"]'
 const totalAssignedInputField = '[name ="totalAssigned"]'
 const SubmitButton = 'Submit'
 const resourceAddedSuccessfullyPopup = 'Resource added Successfully'
-
 const importExcelSheetButton = 'Import Excel Sheet'
 const uploadFileHeaderText ='Upload File'
 const downloadSampleFileLink = 'Download Sample File'
@@ -50,10 +49,8 @@ Cypress.Commands.add('uploadResourceTrackingFile',(fileLocation)=>{
     cy.contains(uploadExcelButton).should('exist').selectFile(fileLocation, { force: true })
     cy.contains(SubmitButton).should('exist').should('be.visible').click().then(()=>{
         cy.contains(dataAlreadyExistsOrExcelFormatisInvalidPopup).should('exist')
-   // cy.contains(SubmitButton).should('exist').and('be.visible').click()
     })
 })
-
 
 Cypress.Commands.add('exportResource',()=>{
     cy.contains(exportResourceButton).should('exist').and('be.visible').click()

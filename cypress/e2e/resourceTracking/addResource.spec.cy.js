@@ -1,20 +1,19 @@
-
 import * as randomData from '../../utilities/utils.js'
 import resourceData from '../../fixtures/resourceTrackingData.json'
 
-describe('resourceTracking', () => {
-
-    const Date = randomData.todayDate();
-    const serialID = randomData.generateRandomString();
-    const file = 'cypress/fixtures/employee_details (7).xlsx'
+describe('resource tracking', () => {
+    let Date
+    let serialID
     let loginTestData
     before(() => {
         cy.fixture('loginData').then((user) => {
             loginTestData = user
         })
+        serialID = randomData.generateRandomString();
+        Date = randomData.todayDate();
     })
 
-    it.skip('addResource', () => {      
+    it('add resource', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -22,21 +21,10 @@ describe('resourceTracking', () => {
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
         cy.clickOnResourceTracking()
-        cy.addResource('OW112233', Date , resourceData.deviceType, serialID, resourceData.Model, resourceData.totalAssigned)
+        cy.addResource('OW112233', Date, resourceData.deviceType, serialID, resourceData.Model, resourceData.totalAssigned)
     })
 
-    it.skip('exportResourcefile', () => {      
-        cy.visit(Cypress.env('baseUrl'))
-        cy.verifyUrlIsLaunchedSuccessfully()
-        cy.verifyLoginPageIsDisplayed()
-        cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
-        cy.clickOnLoginButton()
-        cy.verifyHomePageIsDisplayed()
-        cy.clickOnResourceTracking()
-        cy.exportResource()
-    })
-
-    it.skip('downloadSampleResourcefile', () => {      
+    it('download sample resource file', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -48,7 +36,7 @@ describe('resourceTracking', () => {
         cy.downloadSampleResourceTrackingFile()
     })
 
-    it('uploadResourcefile', () => {      
+    it('upload invalid format of resource excel file', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -57,11 +45,19 @@ describe('resourceTracking', () => {
         cy.verifyHomePageIsDisplayed()
         cy.clickOnResourceTracking()
         cy.clickOnImportExcelSheetFromResourceTracking()
-        cy.uploadResourceTrackingFile(file)
-       
+        cy.uploadResourceTrackingFile(resourceData.file)
     })
 
-    
+    it('export resource file', () => {
+        cy.visit(Cypress.env('baseUrl'))
+        cy.verifyUrlIsLaunchedSuccessfully()
+        cy.verifyLoginPageIsDisplayed()
+        cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
+        cy.clickOnLoginButton()
+        cy.verifyHomePageIsDisplayed()
+        cy.clickOnResourceTracking()
+        cy.exportResource()
+    })
 })
 
 

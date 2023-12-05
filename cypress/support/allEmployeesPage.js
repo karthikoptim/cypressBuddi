@@ -2,7 +2,6 @@ import 'cypress-file-upload';
 
 const allEmployeesPannelText = 'All Employees'
 const addEmployeeButton = 'Add Employee'
-
 const firstNameInputField = '#firstName'
 const lastNameInputField = '[name="lastName"]'
 const employeeeIDInputField = '[placeholder="Employee ID"]'
@@ -24,7 +23,6 @@ const tenth = 'input[name="10th"]'
 const intermediate = 'input[name="Intermediate"]'
 const submitButton = 'Submit'
 const SavedSuccessfullyPopUp = '[role="status"]' 
-
 const uploadFileHeader = 'Upload File'
 const importExcelSheetButton = 'Import Excel Sheet'
 const downloadSampleFileLink = 'Download Sample File'
@@ -33,12 +31,11 @@ const submitButtonUploadExcel = 'Submit'
 const dataAlreadyExistsOrExcelFormatisInvalidPopup = 'Data already exists or excel format is invalid.'
 const exportData = 'Export Data'
 
-
-Cypress.Commands.add('ClickOnAllEmployeesFromPannel', () => {
+Cypress.Commands.add('clickOnAllEmployeesFromPannel', () => {
     cy.contains(allEmployeesPannelText).should('exist').and('be.visible').click()
 })
 
-Cypress.Commands.add('ClickOnAddEmployeeButton', () => {
+Cypress.Commands.add('clickOnAddEmployeeButton', () => {
     cy.contains(addEmployeeButton).should('exist').and('be.visible').click()
 })
 
@@ -85,20 +82,17 @@ Cypress.Commands.add('enterSalaryAndlocation', (salary, location) => {
 Cypress.Commands.add('selectCertificates', () => {
     cy.contains(certificates).should('exist').and('be.visible').click().then(() => {
         cy.get('.certificates-dropdown.shadow').find(tenth).click()
-        // cy.get('.certificates-dropdown.shadow').find(intermediate).click()
     })
 })
 
 Cypress.Commands.add('clickOnSubmitButton', () => {
     cy.contains(certificates).should('exist').and('be.visible').click()
-    cy.wait(2000)
     cy.contains(submitButton).should('exist').should('be.visible').click('center').then(() => {
         cy.get(SavedSuccessfullyPopUp).should('have.text', 'Saved Successfully', { matchCase: false })
     })
 })
 
 Cypress.Commands.add('clickOnImportExcelSheetButton', () => {
-    // cy.contains(uploadFileHeader).should('exist').should('be.visible')
     cy.contains(importExcelSheetButton).should('exist').should('be.visible').click()
 })
 

@@ -24,9 +24,11 @@ cy.get(selectDatesInputField).should('exist').and('be.visible').clear().type(rea
 Cypress.Commands.add('clickOnWorkFromHomeRadioButton', () => {
     cypress.get(workFromHomeRadioButton).should('exist').and('be.visible').click()
 })
+
 Cypress.Commands.add('clickOnLeaveRadioButton', () => {
     cypress.get(leaveRadioButton).should('exist').and('be.visible').click()
 })
+
 Cypress.Commands.add('clickOnSubmitButton', () => {
     cypress.contains(submitButton).should('exist').and('be.visible').click()
 })

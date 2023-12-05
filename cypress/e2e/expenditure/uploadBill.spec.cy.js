@@ -1,11 +1,8 @@
-
 import expendituredatas from '../../fixtures/expenditureData.json'
 import * as date from '../../utilities/utils.js'
 
 describe('expenditure', () => {
-
-const todayDate = date.todayDate()
-
+    const todayDate = date.todayDate()
     let loginTestData
     before(() => {
         cy.fixture('loginData').then((user) => {
@@ -13,7 +10,7 @@ const todayDate = date.todayDate()
         })
     })
 
-    it('uploadingBills', () => {
+    it('uploading bills', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -23,11 +20,10 @@ const todayDate = date.todayDate()
         cy.clickOnExpenditureFromPanel()
         cy.clickOnUploadBill()
         cy.verifyAddExpenditureHeaderTextIsDisplayed()
-        cy.uploadBill(expendituredatas.expenditureType, expendituredatas.Description, todayDate, expendituredatas.Amount)
-
+        cy.uploadBill(expendituredatas.expenditureType, expendituredatas.description, todayDate, expendituredatas.amount)
     })
 
-    it('downloadBills', () => {
+    it('download files', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -35,8 +31,6 @@ const todayDate = date.todayDate()
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
         cy.clickOnExpenditureFromPanel()
-       cy.clickOnDownloadFiles()
+        cy.clickOnDownloadFiles()
     })
-
-
 })
