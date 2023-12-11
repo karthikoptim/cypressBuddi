@@ -1,9 +1,8 @@
-import policydata from '../../fixtures/policyData.json'
-
+import policyData from '../../fixtures/policyData.json'
 
 describe('salary management', () => {
-
     let loginTestData;
+
     before(() => {
         cy.fixture('loginData').then((data) => {
             loginTestData = data
@@ -19,8 +18,13 @@ describe('salary management', () => {
         cy.verifyHomePageIsDisplayed()
     })
 
-    it('upload nnvalid foramrt of leaves excelFile', () => {
+    afterEach(() => {
+        cy.logoutFromApplication()
+        cy.verifyLoginPageIsDisplayed()
+    })
+
+    it('upload invalid foramrt of leaves excelFile', () => {
         cy.clickOnPoliciesButtonFromPanel()
-        cy.verifySalaryManagementSectionIsDisplayed(policydata.policyName,policydata.path)
+        cy.verifySalaryManagementSectionIsDisplayed(policyData.policyName, policyData.path)
     })
 })

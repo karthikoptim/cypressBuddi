@@ -1,5 +1,6 @@
 describe('login', () => {
-    let loginTestData;
+    let loginTestData
+
     before(() => {
         cy.fixture('loginData').then((user) => {
             loginTestData = user;
@@ -22,7 +23,7 @@ describe('login', () => {
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
-        cy.logOutFromApplication()
+        cy.logoutFromApplication()
         cy.verifyLoginPageIsDisplayed()
     })
 })

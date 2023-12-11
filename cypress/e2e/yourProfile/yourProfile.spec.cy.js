@@ -1,8 +1,8 @@
-//const { beforeEach } = require("mocha")
 import profileData from '../../fixtures/yourProfileData.json'
-describe('your profile', () => {
 
-    let loginTestData;
+describe('your profile', () => {
+    let loginTestData
+
     before(() => {
         cy.fixture('loginData').then((data) => {
             loginTestData = data
@@ -18,18 +18,23 @@ describe('your profile', () => {
         cy.verifyHomePageIsDisplayed()
     })
 
+    afterEach(() => {
+        cy.logoutFromApplication()
+        cy.verifyLoginPageIsDisplayed()
+    })
+
     it('edit profile', () => {
         cy.clickOnYourProfileButtonFromPanel()
         cy.verifyProfileDetailsSectionIsDisplayed()
-        cy.editProfileDetails(profileData.dob,profileData.mobileNumber,profileData.bloodGroup,profileData.location,profileData.emergencyContactName,profileData.emergencyPhoneNumber)
-        //cy.clickOnSaveButton()
+        cy.editProfileDetails(profileData.dob, profileData.mobileNumber, profileData.bloodGroup, profileData.location, profileData.emergencyContactName, profileData.emergencyPhoneNumber)
+        cy.clickOnSaveButton()
     })
 
     it('cancel edit profile', () => {
         cy.clickOnYourProfileButtonFromPanel()
         cy.verifyProfileDetailsSectionIsDisplayed()
-        cy.editProfileDetails(profileData.dob,profileData.mobileNumber,profileData.bloodGroup,profileData.location,profileData.emergencyContactName,profileData.emergencyPhoneNumber)
-      //  cy.clickOnCancelButton()
+        cy.editProfileDetails(profileData.dob, profileData.mobileNumber, profileData.bloodGroup, profileData.location, profileData.emergencyContactName, profileData.emergencyPhoneNumber)
+        cy.clickOnCancelButton()
     })
 
 })

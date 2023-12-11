@@ -1,7 +1,7 @@
 const emailInputField = '#hrEmail'
 const passwordInputField = '#hrPassword'
 const loginButton = 'Login'
-const companyLogo = '.company-logo'
+const urBuddiLogo = '.company-logo'
 const welcomeTourBuddiText = 'Welcome to urBuddi'
 const notification = '.notification-btn'
 const logout = '.logout-btn-nav'
@@ -13,7 +13,7 @@ Cypress.Commands.add('verifyUrlIsLaunchedSuccessfully', () => {
 })
 
 Cypress.Commands.add('verifyLoginPageIsDisplayed', () => {
-    cy.get(companyLogo).should('exist').should('be.visible')
+    cy.get(urBuddiLogo).should('exist').should('be.visible')
 })
 
 Cypress.Commands.add('enterLoginDetails', (email, password) => {
@@ -30,6 +30,6 @@ Cypress.Commands.add('verifyHomePageIsDisplayed',()=>{
     cy.get(notification).should('exist').should('be.visible')
 })
 
-Cypress.Commands.add('logOutFromApplication',()=>{
+Cypress.Commands.add('logoutFromApplication',()=>{
     cy.get(logout).should('exist').should("be.visible").click()
 })

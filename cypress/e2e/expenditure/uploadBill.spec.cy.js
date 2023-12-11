@@ -1,35 +1,38 @@
-import expendituredatas from '../../fixtures/expenditureData.json'
+import expenditureDatas from '../../fixtures/expenditureData.json'
 import * as date from '../../utilities/utils.js'
 
 describe('expenditure', () => {
     const todayDate = date.todayDate()
     let loginTestData
+
     before(() => {
         cy.fixture('loginData').then((user) => {
             loginTestData = user
         })
     })
 
-    it('uploading bills', () => {
+    beforeEach(()=>{
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
+    })
+
+    afterEach(()=>{
+        cy.logoutFromApplication()
+        cy.verifyLoginPageIsDisplayed()
+    })
+
+    it('uploading bills', () => {
         cy.clickOnExpenditureFromPanel()
         cy.clickOnUploadBill()
         cy.verifyAddExpenditureHeaderTextIsDisplayed()
-        cy.uploadBill(expendituredatas.expenditureType, expendituredatas.description, todayDate, expendituredatas.amount)
+        cy.uploadBill(expenditureDatas.expenditureType, expenditureDatas.description, todayDate, expenditureDatas.amount)
     })
 
     it('download files', () => {
-        cy.visit(Cypress.env('baseUrl'))
-        cy.verifyUrlIsLaunchedSuccessfully()
-        cy.verifyLoginPageIsDisplayed()
-        cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
-        cy.clickOnLoginButton()
-        cy.verifyHomePageIsDisplayed()
         cy.clickOnExpenditureFromPanel()
         cy.clickOnDownloadFiles()
     })

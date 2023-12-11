@@ -17,5 +17,6 @@
     "salary": "30000",
     "location": "Hyderabad",
     "tenth": "10th",
-    "intermediate": "intermediate"
+    "intermediate": "intermediate",
+    "file" : "cypress/fixtures/employeeDetails.xlsx"
 }

@@ -3,5 +3,5 @@
 "Model" : "Dell",
 "totalAssigned" : 1,
 "allocatedDate" : "new Date().toISOString().split('T')[0]",
-"file" : "cypress/fixtures/employee_details (7).xlsx"
+"file" : "cypress/fixtures/employeeDetails.xlsx"
 }

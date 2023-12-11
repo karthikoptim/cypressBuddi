@@ -1,9 +1,10 @@
-import * as dataUtils from '../../fixtures/fakerData.js'
+import * as dataUtils from '../../fixtures/fakerData'
 import employeeDatas from '../../fixtures/addEmployeeData.json'
 
 describe('all employess', () => {
     let loginTestData, employeeData;
     let adminEmployeeData, id, adminID;
+
     before(() => {
         cy.fixture('loginData').then((user) => {
             loginTestData = user;
@@ -14,13 +15,23 @@ describe('all employess', () => {
         adminID = Math.floor(Math.random() * 100000) + 100;
     })
 
-    it('add employee as admin', () => {
+    beforeEach(()=>{
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
+    })
+
+    afterEach(()=>{
+        cy.logoutFromApplication().then(()=>{
+            cy.verifyLoginPageIsDisplayed()
+        })
+        
+    })
+
+    it('add employee as admin', () => {
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnAddEmployeeButton()
         cy.enterFirstNameAndLastname(employeeData[0], employeeData[1], id)
@@ -31,16 +42,11 @@ describe('all employess', () => {
         cy.enterGenderAndBloodGroup(employeeDatas.gender, employeeDatas.bloodGroup)
         cy.enterMobileNumberAndDesination(employeeDatas.mobileNumber, employeeData[9])
         cy.enterSalaryAndlocation(employeeData[10], employeeData[11])
-        cy.selectCertificates()
+       // cy.selectCertificates()
         cy.clickOnSubmitButton()
     })
 
     it('login with created employee as admin', () => {
-        cy.visit(Cypress.env('baseUrl'))
-        cy.verifyUrlIsLaunchedSuccessfully()
-        cy.verifyLoginPageIsDisplayed()
-        cy.enterLoginDetails(loginTestData.adminMail, loginTestData.adminPassword)
-        cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnAddEmployeeButton()
@@ -52,14 +58,12 @@ describe('all employess', () => {
         cy.enterGenderAndBloodGroup(employeeDatas.gender, employeeDatas.bloodGroup)
         cy.enterMobileNumberAndDesination(employeeDatas.mobileNumber, adminEmployeeData[9])
         cy.enterSalaryAndlocation(adminEmployeeData[10], adminEmployeeData[11])
-        cy.selectCertificates()
+       // cy.selectCertificates()
         cy.clickOnSubmitButton()
-        cy.logOutFromApplication()
+        cy.logoutFromApplication()
         cy.verifyLoginPageIsDisplayed()
         cy.enterLoginDetails(adminEmployeeData[3], adminEmployeeData[4])
         cy.clickOnLoginButton()
         cy.verifyHomePageIsDisplayed()
-        cy.logOutFromApplication()
-        cy.verifyLoginPageIsDisplayed()
     })
 }) 

@@ -7,7 +7,7 @@ const deviceTypeDropDown = '[name="deviceType"]'
 const serialIdInputField = '[name="serialId"]'
 const modelIdInputField = '[name="model"]'
 const totalAssignedInputField = '[name ="totalAssigned"]'
-const SubmitButton = 'Submit'
+const submitButton = 'Submit'
 const resourceAddedSuccessfullyPopup = 'Resource added Successfully'
 const importExcelSheetButton = 'Import Excel Sheet'
 const uploadFileHeaderText ='Upload File'
@@ -29,7 +29,7 @@ Cypress.Commands.add('addResource', (id,date,deviceType,serialId,model,totalAssi
     cy.get(serialIdInputField).should('exist').and('be.visible').clear().type(serialId)
     cy.get(modelIdInputField).should('exist').and('be.visible').clear().type(model)
     cy.get(totalAssignedInputField).should('exist').and('be.visible').clear().type(totalAssigned)
-    cy.contains(SubmitButton).should('exist').and('be.visible').click().then(()=> {
+    cy.contains(submitButton).should('exist').and('be.visible').click().then(()=> {
         cy.contains(resourceAddedSuccessfullyPopup).should('exist').and('be.visible').should('have.text',resourceAddedSuccessfullyPopup)
     })
 })
@@ -47,7 +47,7 @@ Cypress.Commands.add('downloadSampleResourceTrackingFile',()=>{
 Cypress.Commands.add('uploadResourceTrackingFile',(fileLocation)=>{
     cy.contains(uploadFileHeaderText).should('exist').and('be.visible')
     cy.contains(uploadExcelButton).should('exist').selectFile(fileLocation, { force: true })
-    cy.contains(SubmitButton).should('exist').should('be.visible').click().then(()=>{
+    cy.contains(submitButton).should('exist').should('be.visible').click().then(()=>{
         cy.contains(dataAlreadyExistsOrExcelFormatisInvalidPopup).should('exist')
     })
 })
