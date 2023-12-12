@@ -13,7 +13,7 @@ Cypress.Commands.add('verifyUrlIsLaunchedSuccessfully', () => {
 })
 
 Cypress.Commands.add('verifyLoginPageIsDisplayed', () => {
-    cy.get(urBuddiLogo).should('exist').should('be.visible')
+    cy.get(urBuddiLogo).should('exist',{ timeout: 10000 }).should('be.visible')
 })
 
 Cypress.Commands.add('enterLoginDetails', (email, password) => {

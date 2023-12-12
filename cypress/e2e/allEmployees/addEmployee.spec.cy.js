@@ -38,7 +38,7 @@ describe('all employess', () => {
         cy.enterEmailAndPassword(employeeData[3], employeeData[4],)
         cy.selectRole(employeeDatas.role)
         cy.enterDobAndJoiningDate(employeeData[5], employeeData[6])
-        cy.enterQualificationsAndDepartment(employeeDatas.qualifications, employeeDatas.depertment)
+        cy.enterQualificationsAndDepartment(employeeDatas.qualifications, employeeDatas.department)
         cy.enterGenderAndBloodGroup(employeeDatas.gender, employeeDatas.bloodGroup)
         cy.enterMobileNumberAndDesination(employeeDatas.mobileNumber, employeeData[9])
         cy.enterSalaryAndlocation(employeeData[10], employeeData[11])

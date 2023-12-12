@@ -48,7 +48,6 @@ describe('delete employee', () => {
 
 
     it('deleting user', () => {
-        // let emId = (44081).toString()
         const requestBody = {
             employee_id: idNO
         }

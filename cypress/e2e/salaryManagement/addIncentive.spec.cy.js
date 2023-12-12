@@ -44,10 +44,10 @@ describe('salary management', () => {
         cy.downloadLeaveSampleFile()
     })
 
-    it('upload invalid foramrt of leaves excelFile', () => {
+    it('upload invalid format of leaves excelFile', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.importLeaves()
-        cy.uploadInvalidForamrtOfLeavesExcelFile(salaryData.file)
+        cy.uploadInvalidFormatOfLeavesExcelFile(salaryData.file)
     })
 
 })

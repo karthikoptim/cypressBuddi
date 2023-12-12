@@ -3,7 +3,7 @@ const salaryManagementHeaderText = 'Salary Management'
 const addIncentiveButton = 'Add Incentive'
 const enterempIdInputField = '#empId'
 const incentiveAmountInputField = '#incentiveAmount'
-const SubmitButton = 'Submit'
+const submitButton = 'Submit'
 const incentiveAddedSuccessfullyMessage = 'Incentive added successfully'
 const generatePayrollButton = 'Generate Payroll'
 const payrollDownloadedSuccessfullyPopup = 'Payroll Downloaded Successfully'
@@ -31,7 +31,7 @@ Cypress.Commands.add('addIncentive', (empId, incentiveAnount) => {
     cy.contains(addIncentiveButton).should('exist').and('be.visible').click()
     cy.get(enterempIdInputField).should('exist').and('be.visible').clear().type(empId).should('have.value', empId)
     cy.get(incentiveAmountInputField).should('exist').and('be.visible').clear().type(incentiveAnount).should('have.value', incentiveAnount)
-    cy.contains(SubmitButton).should('exist').and('be.visible').click().then(() => {
+    cy.contains(submitButton).should('exist').and('be.visible').click().then(() => {
         cy.contains(incentiveAddedSuccessfullyMessage).should('exist').and('be.visible').and('have.text', incentiveAddedSuccessfullyMessage)
     })
 })
@@ -58,7 +58,7 @@ Cypress.Commands.add('downloadLeaveSampleFile',()=>{
     cy.contains(downloadSampleFile).should('exist').and('be.visible').click()
 })
 
-Cypress.Commands.add('uploadInvalidForamrtOfLeavesExcelFile',(fileLocation)=>{
+Cypress.Commands.add('uploadInvalidFormatOfLeavesExcelFile',(fileLocation)=>{
     cy.contains(uploadExcelButton).should('exist').and('be.visible').selectFile(fileLocation)
-    cy.contains(SubmitButton).should('exist').and('be.visible').click()
+    cy.contains(submitButton).should('exist').and('be.visible').click()
 })

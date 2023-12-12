@@ -59,9 +59,9 @@ Cypress.Commands.add('enterDobAndJoiningDate', (DobDob, joining) => {
     cy.get(joiningDate).should('exist').clear().type(joining)
 })
 
-Cypress.Commands.add('enterQualificationsAndDepartment', (qualifications, depertment) => {
+Cypress.Commands.add('enterQualificationsAndDepartment', (qualifications, department) => {
     cy.get(qualificationsInputField).should('exist').and('be.visible').clear().type(qualifications)
-    cy.get(depertmentInputField).should('exist').and('be.visible').clear().type(depertment)
+    cy.get(depertmentInputField).should('exist').and('be.visible').clear().type(department)
 })
 
 Cypress.Commands.add('enterGenderAndBloodGroup', (gender, bloodGroup) => {

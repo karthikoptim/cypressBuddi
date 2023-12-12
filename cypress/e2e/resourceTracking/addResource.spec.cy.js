@@ -2,10 +2,8 @@ import * as randomData from '../../utilities/utils.js'
 import resourceData from '../../fixtures/resourceTrackingData.json'
 
 describe('resource tracking', () => {
-    let Date
-    let serialID
-    let loginTestData
-
+    let Date,serialID,loginTestData
+ 
     before(() => {
         cy.fixture('loginData').then((user) => {
             loginTestData = user
