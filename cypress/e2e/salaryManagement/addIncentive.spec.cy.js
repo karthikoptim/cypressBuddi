@@ -44,7 +44,7 @@ describe('salary management', () => {
         cy.downloadLeaveSampleFile()
     })
 
-    it('upload nnvalid foramrt of leaves excelFile', () => {
+    it('upload invalid foramrt of leaves excelFile', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.importLeaves()
         cy.uploadInvalidForamrtOfLeavesExcelFile(salaryData.file)
