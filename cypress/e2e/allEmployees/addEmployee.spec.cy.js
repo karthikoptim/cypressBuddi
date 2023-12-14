@@ -15,7 +15,7 @@ describe('all employess', () => {
         adminID = Math.floor(Math.random() * 100000) + 100;
     })
 
-    beforeEach(()=>{
+    beforeEach(() => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -24,11 +24,11 @@ describe('all employess', () => {
         cy.verifyHomePageIsDisplayed()
     })
 
-    afterEach(()=>{
-        cy.logoutFromApplication().then(()=>{
+    afterEach(() => {
+        cy.logoutFromApplication().then(() => {
             cy.verifyLoginPageIsDisplayed()
         })
-        
+
     })
 
     it('add employee as admin', () => {
@@ -42,7 +42,7 @@ describe('all employess', () => {
         cy.enterGenderAndBloodGroup(employeeDatas.gender, employeeDatas.bloodGroup)
         cy.enterMobileNumberAndDesination(employeeDatas.mobileNumber, employeeData[9])
         cy.enterSalaryAndlocation(employeeData[10], employeeData[11])
-       // cy.selectCertificates()
+        cy.selectCertificates()
         cy.clickOnSubmitButton()
     })
 
@@ -58,7 +58,7 @@ describe('all employess', () => {
         cy.enterGenderAndBloodGroup(employeeDatas.gender, employeeDatas.bloodGroup)
         cy.enterMobileNumberAndDesination(employeeDatas.mobileNumber, adminEmployeeData[9])
         cy.enterSalaryAndlocation(adminEmployeeData[10], adminEmployeeData[11])
-       // cy.selectCertificates()
+        cy.selectCertificates()
         cy.clickOnSubmitButton()
         cy.logoutFromApplication()
         cy.verifyLoginPageIsDisplayed()

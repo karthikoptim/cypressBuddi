@@ -23,8 +23,8 @@ describe('salary management', () => {
         cy.verifyLoginPageIsDisplayed()
     })
 
-    it('upload invalid foramrt of leaves excelFile', () => {
+    it('upload invalid format of leaves excelFile', () => {
         cy.clickOnPoliciesButtonFromPanel()
-        cy.verifySalaryManagementSectionIsDisplayed(policyData.policyName, policyData.path)
+        cy.addPolicy(policyData.policyName, policyData.path)
     })
 })

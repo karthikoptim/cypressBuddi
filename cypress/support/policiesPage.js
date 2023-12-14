@@ -10,7 +10,7 @@ Cypress.Commands.add('clickOnPoliciesButtonFromPanel', () => {
     cy.contains(policiesButtonFromPanel).should('exist').and('be.visible').click()
 })
 
-Cypress.Commands.add('verifySalaryManagementSectionIsDisplayed', (policyName, filePath) => {
+Cypress.Commands.add('addPolicy', (policyName, filePath) => {
     cy.contains(addPolicyButtonFromPanel).should('exist').and('be.visible').click()
     cy.contains(policyFormHeaderText).should('exist').and('be.visible').and('have.text', policyFormHeaderText)
     cy.get(policyNameInputField).should('exist').and('be.visible').clear().type(policyName).should('have.value', policyName)
