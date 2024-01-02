@@ -1,6 +1,6 @@
 import profileData from '../../fixtures/yourProfileData.json'
 
-describe('your profile', () => {
+describe('Your Profile', () => {
     let loginTestData
 
     before(() => {
@@ -23,14 +23,14 @@ describe('your profile', () => {
         cy.verifyLoginPageIsDisplayed()
     })
 
-    it('edit profile', () => {
+    it('should edit profile', () => {
         cy.clickOnYourProfileButtonFromPanel()
         cy.verifyProfileDetailsSectionIsDisplayed()
         cy.editProfileDetails(profileData.dob, profileData.mobileNumber, profileData.bloodGroup, profileData.location, profileData.emergencyContactName, profileData.emergencyPhoneNumber)
         cy.clickOnSaveButton()
     })
 
-    it('cancel edit profile', () => {
+    it('should edit profile', () => {
         cy.clickOnYourProfileButtonFromPanel()
         cy.verifyProfileDetailsSectionIsDisplayed()
         cy.editProfileDetails(profileData.dob, profileData.mobileNumber, profileData.bloodGroup, profileData.location, profileData.emergencyContactName, profileData.emergencyPhoneNumber)

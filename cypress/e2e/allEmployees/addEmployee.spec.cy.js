@@ -1,7 +1,7 @@
 import * as dataUtils from '../../fixtures/fakerData'
 import employeeDatas from '../../fixtures/addEmployeeData.json'
 
-describe('all employess', () => {
+describe('All Employess', () => {
     let loginTestData, employeeData;
     let adminEmployeeData, id, adminID;
 
@@ -31,7 +31,7 @@ describe('all employess', () => {
 
     })
 
-    it('add employee as admin', () => {
+    it('should add employee as admin', () => {
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnAddEmployeeButton()
         cy.enterFirstNameAndLastname(employeeData[0], employeeData[1], id)
@@ -46,7 +46,7 @@ describe('all employess', () => {
         cy.clickOnSubmitButton()
     })
 
-    it('login with created employee as admin', () => {
+    it('should login with created employee as admin', () => {
         cy.verifyHomePageIsDisplayed()
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnAddEmployeeButton()

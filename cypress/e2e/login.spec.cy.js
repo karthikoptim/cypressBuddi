@@ -1,4 +1,4 @@
-describe('login', () => {
+describe('Login', () => {
     let loginTestData
 
     before(() => {
@@ -7,7 +7,7 @@ describe('login', () => {
         })
     })
 
-    it('login as admin with valid credentials', () => {
+    it('should login as admin with valid credentials', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()
@@ -16,7 +16,7 @@ describe('login', () => {
         cy.verifyHomePageIsDisplayed()
     })
 
-    it('logout from application', () => {
+    it('should logout from application', () => {
         cy.visit(Cypress.env('baseUrl'))
         cy.verifyUrlIsLaunchedSuccessfully()
         cy.verifyLoginPageIsDisplayed()

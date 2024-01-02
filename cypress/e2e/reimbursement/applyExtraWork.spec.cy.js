@@ -1,6 +1,6 @@
 import * as randomData from '../../utilities/utils.js'
 
-describe('reimbursement', () => {
+describe('Reimbursement', () => {
     const date = randomData.getRandomDateInLastMonth()
     const numberOfHours = randomData.getRandomNumber()
     let loginTestData
@@ -25,7 +25,7 @@ describe('reimbursement', () => {
         cy.verifyLoginPageIsDisplayed()
     })
 
-    it('apply extra work', () => {
+    it('should apply extra work', () => {
         cy.clickOnReimbursement()
         cy.clickOnApplyExtrawork()
         cy.applyExtraWork(date, numberOfHours)

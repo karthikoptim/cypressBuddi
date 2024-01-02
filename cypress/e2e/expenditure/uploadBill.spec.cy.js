@@ -1,7 +1,7 @@
 import expenditureDatas from '../../fixtures/expenditureData.json'
 import * as date from '../../utilities/utils.js'
 
-describe('expenditure', () => {
+describe('Expenditure', () => {
     const todayDate = date.todayDate()
     let loginTestData
 
@@ -25,14 +25,14 @@ describe('expenditure', () => {
         cy.verifyLoginPageIsDisplayed()
     })
 
-    it('uploading bills', () => {
+    it('should upload bills', () => {
         cy.clickOnExpenditureFromPanel()
         cy.clickOnUploadBill()
         cy.verifyAddExpenditureHeaderTextIsDisplayed()
         cy.uploadBill(expenditureDatas.expenditureType, expenditureDatas.description, todayDate, expenditureDatas.amount)
     })
 
-    it('download files', () => {
+    it('should download files', () => {
         cy.clickOnExpenditureFromPanel()
         cy.clickOnDownloadFiles()
     })

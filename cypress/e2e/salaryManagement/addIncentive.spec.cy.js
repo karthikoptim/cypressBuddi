@@ -1,6 +1,6 @@
 import salaryData from '../../fixtures/salaryManagementData.json'
 
-describe('salary management', () => {
+describe('Salary Management', () => {
     let loginTestData;
 
     before(() => {
@@ -23,28 +23,28 @@ describe('salary management', () => {
         cy.verifyLoginPageIsDisplayed()
     })
 
-    it('add incentive', () => {
+    it('should add incentive', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.addIncentive(salaryData.employeeId, salaryData.enterAmout)
     })
 
-    it('generate payroll', () => {
+    it('should generate payroll', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.generatePayroll()
     })
 
-    it('generate payslip', () => {
+    it('should generate payslip', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.generatePayslip(salaryData.monthToRegeneratePayslip,salaryData.employeeId)
     })
 
-    it('download leave sample file', () => {
+    it('should download leave sample file', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.importLeaves()
         cy.downloadLeaveSampleFile()
     })
 
-    it('upload invalid format of leaves excelFile', () => {
+    it('should upload invalid format of leaves excelFile', () => {
         cy.clickOnSalaryManagementButtonFromPanel()
         cy.importLeaves()
         cy.uploadInvalidFormatOfLeavesExcelFile(salaryData.file)

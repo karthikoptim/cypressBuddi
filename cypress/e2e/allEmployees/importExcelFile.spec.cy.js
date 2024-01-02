@@ -1,6 +1,6 @@
 import employeeData from '../../fixtures/addEmployeeData.json'
 
-describe('import file upload', () => {
+describe('Import File Upload', () => {
     let loginTestData;
 
     before(() => {
@@ -23,19 +23,19 @@ describe('import file upload', () => {
         cy.verifyLoginPageIsDisplayed()
     })
 
-    it('download sample file',()=>{
+    it('should download sample file',()=>{
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnImportExcelSheetButton()
         cy.clickOnDownloadSampleFile()
     })
 
-    it('upload invalid format of employee details excel file', () => {
+    it('should upload invalid format of employee details excel file', () => {
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnImportExcelSheetButton()
         cy.clickOnUploadExcelButton(employeeData.file)
     })
 
-    it('export data',()=>{
+    it('should export data',()=>{
         cy.clickOnAllEmployeesFromPannel()
         cy.clickOnExportData()
     })

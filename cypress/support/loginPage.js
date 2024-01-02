@@ -1,10 +1,10 @@
-const emailInputField = '#hrEmail'
-const passwordInputField = '#hrPassword'
+const emailInputField = '#userEmail'
+const passwordInputField = '#userPassword'
 const loginButton = 'Login'
-const urBuddiLogo = '.company-logo'
+const urBuddiLogo = '.welcomeMessage'
 const welcomeTourBuddiText = 'Welcome to urBuddi'
 const notification = '.notification-btn'
-const logout = '.logout-btn-nav'
+const logout = 'Logout'
 
 Cypress.Commands.add('verifyUrlIsLaunchedSuccessfully', () => {
     cy.url().should('include', 'login')
@@ -31,5 +31,5 @@ Cypress.Commands.add('verifyHomePageIsDisplayed',()=>{
 })
 
 Cypress.Commands.add('logoutFromApplication',()=>{
-    cy.get(logout).should('exist').should("be.visible").click()
+    cy.contains(logout).should('exist').should("be.visible").click()
 })

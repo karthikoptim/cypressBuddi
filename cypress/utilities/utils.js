@@ -1,3 +1,4 @@
+
 export function getRandomDateInLastMonth() {
     const today = new Date();
     const lastMonth = new Date();
@@ -30,3 +31,13 @@ export function generateRandomString() {
     }
     return randomString;
 }
+
+export function futureDate() {
+    let currentDate = new Date();
+    let randomDays = Math.floor(Math.random() * 360) + 1;
+      let futureDate = new Date(currentDate);
+    futureDate.setDate(currentDate.getDate() + randomDays);
+    console.log("Random Future Date: " + futureDate.toISOString().split('T')[0]);
+    return futureDate.toISOString().split('T')[0];
+}
+
