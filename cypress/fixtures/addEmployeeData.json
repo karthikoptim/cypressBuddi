@@ -1,0 +1,22 @@
+{
+    "firstName": "Cypress",
+    "lastName": "Automation",
+    "employeeeID": "OW00",
+    "email": "cypressAutomation@yopmail.com",
+    "email2" : "@yopmail.com",
+    "role": "Admin",
+    "password": "Qwerty@123",
+    "dob": "1998-01-01",
+    "joiningDate": "2023-01-01",
+    "qualifications": "B-tech",
+    "department": "Civil",
+    "gender": "Female",
+    "mobileNumber": "9874563210",
+    "bloodGroup": "B+",
+    "designation": "QAEngineer",
+    "salary": "30000",
+    "location": "Hyderabad",
+    "tenth": "10th",
+    "intermediate": "intermediate",
+    "file" : "cypress/fixtures/employeeDetails.xlsx"
+}

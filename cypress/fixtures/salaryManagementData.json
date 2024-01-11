@@ -1,0 +1,6 @@
+{
+"employeeId": "OS001",
+"enterAmout" : "15000",
+"monthToRegeneratePayslip" : "December 2023",
+"file" : "cypress/fixtures/employeeDetails.xlsx"
+}
